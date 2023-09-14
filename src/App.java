@@ -1,8 +1,44 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
-        binaryNumbers();
+       // Scanner in = new Scanner(System.in);
+       // int t = in.nextInt();
+       Scanner in = new Scanner(System.in);
+       int c = in.nextInt();
+       try{
+           for(int i = 0; i < c; i ++){
+               int n = in.nextInt();
+               int p = in.nextInt();
+               Calculator(n, p);
+           }
+       }
+        catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+    }
+
+    static void Calculator(int n, int p) throws Exception{
+        if(n > 0 && p >0){
+            System.out.println((int)Math.pow(n, p));
+        }
+        else{
+           //System.out.println("n and p should be non-negative");
+            throw new Exception("n and p should be non-negative");
+        }
+    }
+
+    //Exception handling
+    static void parseStringToInt(String data){
+        //https://www.hackerrank.com/challenges/30-exceptions-string-to-integer/problem?isFullScreen=true
+        try{
+            String S = "sdsd";
+            System.out.println(Integer.parseInt(S));
+        }
+        catch(NumberFormatException ex){
+            System.out.println("Bad String");
+        }
     }
     //Giving a 10-base number, convert it to 2-base and count the total of a consecutive group, print the maximum to the screen.
     static void binaryNumbers(){
